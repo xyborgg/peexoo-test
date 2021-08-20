@@ -138,7 +138,11 @@
           </thead>
           <tbody>
             <tr v-for="row in rows" :key="row.title">
-                <td v-for="col in columns" :key="col.title"><router-link :to="{name: 'PricingDetails'}">{{ row[col] }}</router-link></td>
+              <td v-for="col in columns" :key="col.title">
+                <router-link :to="{ name: 'PricingDetails' }">{{
+                  row[col]
+                }}</router-link>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -483,13 +487,13 @@ export default {
 }
 
 .profile-category p {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-category i {
-    font-size: 7px;
-    padding-right: 7px;
+  font-size: 7px;
+  padding-right: 7px;
 }
 
 .profile-contact {
@@ -573,30 +577,28 @@ export default {
 }
 
 .social-footer i:before {
-    background: transparent linear-gradient(180deg, rgba(255, 121, 121, 1) 0%, rgba(255, 168, 29, 1) 100%) 0% 0% no-repeat padding-box;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: transparent
+    linear-gradient(
+      180deg,
+      rgba(255, 121, 121, 1) 0%,
+      rgba(255, 168, 29, 1) 100%
+    )
+    0% 0% no-repeat padding-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .modal {
-  /* This way it could be display flex or grid or whatever also. */
   display: block;
-
-  /* Probably need media queries here */
   width: 600px;
   max-width: 100%;
-
   height: 400px;
   max-height: 100%;
-
   position: fixed;
-
   z-index: 100;
   left: 50%;
   top: 50%;
-
-  /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
 }
 .closed {
@@ -627,10 +629,8 @@ export default {
 
 .modal-overlay .close-button {
   position: absolute;
-  /*don'tneedtogocrazywithz-indexhere,justsitsover.modal-guts*/
   z-index: 1;
   top: 43px;
-  /*needstolookOKwithorwithoutscrollbar*/
   right: 45%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 19px;
@@ -661,7 +661,6 @@ export default {
   object-fit: cover;
 }
 
-/* Add Animation */
 .modal-content,
 .card {
   -webkit-animation-name: zoom;
@@ -734,7 +733,6 @@ export default {
   }
 }
 
-/* ANIMATION */
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -833,7 +831,7 @@ td:nth-child(4) {
 
 #packages tbody td a {
   padding: 12px 18px;
-  width: 100%
+  width: 100%;
 }
 
 #packages tbody td a:hover {

@@ -130,77 +130,77 @@
       </section>
 
       <section class="calendar-section">
-          <div class="calendar-container">
-            <div class="prev-month">
-                <div class="prev">&#10094;</div>
-            </div>
-            <div class="calendar">
-                <div class="month">      
-                    <h2>April 2020</h2>
-                </div>
-
-                <ul class="weekdays">
-                <li>Sun</li>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-                </ul>
-
-                <ul class="days">
-                    <div>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li class="non-active">1</li>
-                        <li class="non-active">2</li>
-                        <li class="non-active">3</li>
-                        <li class="non-active">4</li>
-                        <li class="non-active">5</li>
-                        <li class="non-active">6</li>
-                        <li class="non-active">7</li>
-                        <li><span class="active">8</span></li>
-                        <li><span class="active">9</span></li>
-                        <li><span class="active">10</span></li>
-                        <li><span class="active">11</span></li>
-                        <li><span class="active">12</span></li>
-                        <li><span class="active">13</span></li>
-                        <li><span class="active">14</span></li>
-                        <li><span class="active">15</span></li>
-                        <li>16</li>
-                        <li>17</li>
-                        <li>18</li>
-                        <li>19</li>
-                        <li>20</li>
-                        <li>21</li>
-                        <li>22</li>
-                        <li>23</li>
-                        <li>24</li>
-                        <li>25</li>
-                        <li>26</li>
-                        <li>27</li>
-                        <li>28</li>
-                        <li>29</li>
-                        <li>30</li>
-                        <li>31</li>
-                    </div>
-                </ul>
-            </div>
-            <div class="next-month">
-                <div class="next">&#10095;</div>
-            </div>
+        <div class="calendar-container">
+          <div class="prev-month">
+            <div class="prev">&#10094;</div>
           </div>
-          <div class="calendar-footer">
-            <div class="legend">
-                <p class="booked"><i class="fa fa-circle"></i>Booked</p>
-                <p>Orange shaded dates are booked dates</p>
+          <div class="calendar">
+            <div class="month">
+              <h2>April 2020</h2>
             </div>
-            <div class="legend">
-                <p class="free-days"><i class="fa fa-circle"></i>Available</p>
-                <p>Unshaded dates are fee days</p>
-            </div>
+
+            <ul class="weekdays">
+              <li>Sun</li>
+              <li>Mon</li>
+              <li>Tue</li>
+              <li>Wed</li>
+              <li>Thu</li>
+              <li>Fri</li>
+              <li>Sat</li>
+            </ul>
+
+            <ul class="days">
+              <div>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="non-active">1</li>
+                <li class="non-active">2</li>
+                <li class="non-active">3</li>
+                <li class="non-active">4</li>
+                <li class="non-active">5</li>
+                <li class="non-active">6</li>
+                <li class="non-active">7</li>
+                <li><span class="active">8</span></li>
+                <li><span class="active">9</span></li>
+                <li><span class="active">10</span></li>
+                <li><span class="active">11</span></li>
+                <li><span class="active">12</span></li>
+                <li><span class="active">13</span></li>
+                <li><span class="active">14</span></li>
+                <li><span class="active">15</span></li>
+                <li>16</li>
+                <li>17</li>
+                <li>18</li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+              </div>
+            </ul>
+          </div>
+          <div class="next-month">
+            <div class="next">&#10095;</div>
+          </div>
+        </div>
+        <div class="calendar-footer">
+          <div class="legend">
+            <p class="booked"><i class="fa fa-circle"></i>Booked</p>
+            <p>Orange shaded dates are booked dates</p>
+          </div>
+          <div class="legend">
+            <p class="free-days"><i class="fa fa-circle"></i>Available</p>
+            <p>Unshaded dates are fee days</p>
+          </div>
         </div>
       </section>
     </div>
@@ -603,10 +603,16 @@ export default {
 }
 
 .social-footer i:before {
-    background: transparent linear-gradient(180deg, rgba(255, 121, 121, 1) 0%, rgba(255, 168, 29, 1) 100%) 0% 0% no-repeat padding-box;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: transparent
+    linear-gradient(
+      180deg,
+      rgba(255, 121, 121, 1) 0%,
+      rgba(255, 168, 29, 1) 100%
+    )
+    0% 0% no-repeat padding-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .modal {
@@ -657,10 +663,8 @@ export default {
 
 .modal-overlay .close-button {
   position: absolute;
-  /*don'tneedtogocrazywithz-indexhere,justsitsover.modal-guts*/
   z-index: 1;
   top: 43px;
-  /*needstolookOKwithorwithoutscrollbar*/
   right: 45%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 19px;
@@ -764,7 +768,6 @@ export default {
   }
 }
 
-/* ANIMATION */
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
@@ -834,43 +837,44 @@ export default {
 }
 
 .calendar-section {
-    padding-top: 39px;
+  padding-top: 39px;
 }
 
 .calendar-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .prev-month {
-    padding-right: 54px;
+  padding-right: 54px;
 }
 
 .next-month {
-    padding-left: 54px;
+  padding-left: 54px;
 }
 
-.prev, .next {
-    display: flex;
-    border-radius: 50%;
-    height: 28px;
-    width: 28px;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--fs-xxs);
-    color: var(--secondary-color);
-    background-color: rgba(235, 235, 235, 1);
-    cursor: pointer;
-} 
+.prev,
+.next {
+  display: flex;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xxs);
+  color: var(--secondary-color);
+  background-color: rgba(235, 235, 235, 1);
+  cursor: pointer;
+}
 
 .month {
   text-align: center;
 }
 
 .month h2 {
-    font-size: var(--fs-sm);
-    font-weight: normal;
-    margin: 0 0 10.5px 0;
+  font-size: var(--fs-sm);
+  font-weight: normal;
+  margin: 0 0 10.5px 0;
 }
 
 .month ul {
@@ -896,100 +900,86 @@ export default {
 }
 
 .weekdays {
-    font-size: var(--fs-xxs);
-    padding: 10px 0;
-    border-top: 1px solid rgba(237, 237, 237, 1);
-    border-bottom: 1px solid rgba(237, 237, 237, 1);
+  font-size: var(--fs-xxs);
+  padding: 10px 0;
+  border-top: 1px solid rgba(237, 237, 237, 1);
+  border-bottom: 1px solid rgba(237, 237, 237, 1);
 }
 
 .weekdays li {
-    width: 12.6%;
-    display: inline-flex;
-    justify-content: center;
+  width: 12.6%;
+  display: inline-flex;
+  justify-content: center;
 }
 
 .days {
-    color: var(--nav-secondary-color);
-    margin: 26px 0 0 0;
+  color: var(--nav-secondary-color);
+  margin: 26px 0 0 0;
 }
 
 .days li {
-    list-style-type: none;
-    display: inline-flex;
-    width: 12.6%;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 12px;
+  list-style-type: none;
+  display: inline-flex;
+  width: 12.6%;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 12px;
 }
 
 .days li .active {
-    color: var(--bg-color);
-    display: flex;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    align-items: center;
-    justify-content: center;
-    font-weight: normal;
-    background-color: var(--primary-color);
+  color: var(--bg-color);
+  display: flex;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  background-color: var(--primary-color);
 }
 
 .days .non-active {
-    color: rgba(212, 212, 212, 1);
+  color: rgba(212, 212, 212, 1);
 }
 
 .calendar-footer {
-    padding-top: 56px;
+  padding-top: 56px;
 }
 
 .legend {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .legend p {
-    font-size: var(--fs-sm);
-    color: rgba(112, 112, 112, 0.4);
+  font-size: var(--fs-sm);
+  color: rgba(112, 112, 112, 0.4);
 }
 
 .legend .booked {
-    margin-right: 35px;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
+  margin-right: 35px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
 }
 
 .legend .booked i {
-    margin-right: 23px;
-    color: var(--primary-color);
-    font-size: 8px;
+  margin-right: 23px;
+  color: var(--primary-color);
+  font-size: 8px;
 }
 
 .legend .free-days {
-    margin-right: 23px;
-    color: var(--nav-secondary-color);
-    display: flex;
-    align-items: center;
+  margin-right: 23px;
+  color: var(--nav-secondary-color);
+  display: flex;
+  align-items: center;
 }
 
 .legend .free-days i {
-    margin-right: 23px;
-    color: rgba(244, 243, 240, 1);
-    font-size: 8px;
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-  .weekdays li, .days li {width: 12.5%;}
-  .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
+  margin-right: 23px;
+  color: rgba(244, 243, 240, 1);
+  font-size: 8px;
 }
 </style>

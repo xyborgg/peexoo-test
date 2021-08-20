@@ -4,7 +4,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Banner from "../components/Banner"
 import PricingCard from "../components/PricingCard"
 export default {
