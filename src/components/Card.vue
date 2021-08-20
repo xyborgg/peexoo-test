@@ -34,12 +34,10 @@
         <div class="profile-info">
           <div class="profile-category">
             <h3>Category</h3>
-            <ul>
-              <li>Food</li>
-              <li>Portrait</li>
-              <li>Wedding</li>
-              <li>Model</li>
-            </ul>
+            <p><i class="fa fa-circle"></i>Food</p>
+            <p><i class="fa fa-circle"></i>Portrait</p>
+            <p><i class="fa fa-circle"></i>Wedding</p>
+            <p><i class="fa fa-circle"></i>Model</p>
           </div>
           <div class="profile-contact">
             <h3>Location</h3>
@@ -113,33 +111,142 @@
         <div class="tab-link">
           <ul class="flex">
             <li><router-link class="link active" :to="{name: 'Home'}">Portfolio</router-link></li>
-            <li><router-link class="link" :to="{name: ''}">Availability</router-link></li>
+            <li><router-link class="link" :to="{name: 'Availability'}">Availability</router-link></li>
             <li><router-link class="link" :to="{name: 'Pricing'}">Pricing Package</router-link></li>
           </ul>
         </div>
       </section>
 
-      <section class="grid-container">
-        <Gallery />
+      <section class="image-grid">
+          <div class="load-image" v-for="(image, index) in images" :key="index" @click.stop="displayImage = true">
+              <img @click="updateImage(index)" :src="image.src" :alt="image.caption" />
+          </div>
+        <div class="modal-overlay" v-if="displayImage" @click="displayImage = false">
+        </div>
+        <div class="gallery-modal" v-if="displayImage">
+          <!-- <div class="modal-guts"> -->
+            <div class="modal-content">
+              <div class="view-gallery">
+                <!-- //////////////// -->
+                <div class="gallery">
+                    <figure class="gallery__item">
+                      <!-- <span class="prev" @click="updateImage(selectedImage - 1)" ></span>
+                      <span class="next" @click="updateImage(selectedImage + 1)" ></span> -->
+                      <img :src="images[selectedImage].src" :alt="images[selectedImage].caption" class="gallery__img" />
+                      <!-- <div class="caption">
+                          <h2>{{images[selectedImage].caption}}</h2>
+                          <p> Image {{selectedImage + 1}} of {{images.length}}</p>
+                      </div> -->
+                      <div class="gallery-caption">
+                        <ul>
+                          <li>
+                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                          </li>
+                          <li>
+                            <a href="#"
+                              ><i class="fa fa-heart" aria-hidden="true"></i
+                            ></a>
+                          </li>
+                          <li class="caption-sm">
+                            <a href="#">
+                              <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              </a><span>5,349</span>
+                          </li>
+                          <li class="caption-sm">
+                            <a class="caption-sm" href="#"
+                              ><i class="fa fa-heart-o" aria-hidden="true"></i
+                            ></a><span>23</span>
+                          </li>
+                          <li class="caption-sm">
+                            <a class="caption-sm" href="#"
+                              ><i class="fa fa-eye-slash" aria-hidden="true"></i
+                            ></a><span>24,023</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </figure>
+                </div>
+                <!-- //////////////// -->
+              </div>
+            </div>
+          <!-- </div> -->
+        </div>
+        <div class="image__list" v-if="displayImage">
+          <ul>
+              <li v-for="(image, index) in images" :key="index" :class="`list__img ${index === selectedImage ? 'active' : ''}`">
+                  <img @click="updateImage(index)" :src="image.src" :alt="image.caption" />
+              </li>
+          </ul>
+      </div>
+      <div class="modal-footer" v-if="displayImage">
+        <p>
+          Built for free
+          <span
+            ><i class="fa fa-heart fa-gradient" aria-hidden="true"></i
+          ></span>
+          on Peexoo
+        </p>
+      </div>
       </section>
     </div>
   </div>
 </template>
 
 <script>
-import Gallery from '@/components/Gallery.vue';
 const images = ["http://localhost:8081/img/profile.d8f115ef.jpeg"];
 export default {
   name: "Card",
-  components: {
-    Gallery,
-  },
   data() {
     return {
       index: 0,
       image: images[0],
       displayModal: false,
+      displayImage: false,
       cardHidden: null,
+      message: 'Vue Image Gallery',
+        selectedImage: 0,
+        images: [
+          {
+              src: 'https://picsum.photos/id/199/800/500.jpg',
+              caption: 'A pier at a beach'
+          },
+          {
+              src: 'https://picsum.photos/id/250/800/500.jpg',
+              caption: 'An old camera'
+          },
+          {
+              src: 'https://picsum.photos/id/321/800/500.jpg',
+              caption: 'New York City from the sky'
+          },
+          {
+              src: 'https://picsum.photos/id/308/800/500.jpg',
+              caption: 'A random street'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+          {
+              src: 'https://picsum.photos/id/800/800/500.jpg',
+              caption: 'A Train Station'
+          },
+        ]
     };
   },
   methods: {
@@ -157,8 +264,20 @@ export default {
     onClickOutsode(e) {
       if (e.target.localName !== "button") {
         this.displayModal = false;
+        // this.displayImage = false;
       }
     },
+    updateImage(index = 0) {
+			if (index === -1) {
+				this.selectedImage = this.images.length - 1;
+				return;
+			}
+			if (index === this.images.length) {
+				this.selectedImage = 0;
+				return;
+			}
+			this.selectedImage = index;
+		}
   },
   mounted() {
     window.addEventListener("click", this.onClickOutsode);
@@ -257,15 +376,6 @@ export default {
   position: absolute;
   width: 100%;
 }
-
-/* .load-image {
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    margin: 0.3em;
-    height: 10em;
-    width: 10em;
-} */
 
 .image-grid {
   display: grid;
@@ -414,6 +524,7 @@ export default {
 
 .profile-category {
   display: flex;
+  align-items: center;
   letter-spacing: -0.26px;
   justify-content: space-between;
   width: 100%;
@@ -426,22 +537,14 @@ export default {
   margin: 0px 0px 2px;
 }
 
-.profile-category ul {
+.profile-category p {
   display: flex;
-  justify-content: space-between;
-  list-style-type: disc;
-  list-style-position: inside;
-  flex-grow: 1;
-  white-space: nowrap;
-  position: absolute;
-  right: 16px;
-  width: 66.5%;
+  align-items: center;
 }
 
-.profile-category ul li::marker {
-  padding: 0;
-  font-size: 12px;
-  white-space: pre-wrap;
+.profile-category i {
+  font-size: 7px;
+  padding-right: 7px;
 }
 
 .profile-contact {
@@ -532,25 +635,18 @@ export default {
 }
 
 .modal {
-  /* This way it could be display flex or grid or whatever also. */
   display: block;
-
-  /* Probably need media queries here */
   width: 600px;
   max-width: 100%;
-
   height: 400px;
   max-height: 100%;
-
   position: fixed;
-
   z-index: 100;
   left: 50%;
   top: 50%;
-
-  /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
 }
+
 .closed {
   display: none;
 }
@@ -579,10 +675,8 @@ export default {
 
 .modal-overlay .close-button {
   position: absolute;
-  /*don'tneedtogocrazywithz-indexhere,justsitsover.modal-guts*/
   z-index: 1;
   top: 43px;
-  /*needstolookOKwithorwithoutscrollbar*/
   right: 45%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 19px;
@@ -613,7 +707,6 @@ export default {
   object-fit: cover;
 }
 
-/* Add Animation */
 .modal-content,
 .card {
   -webkit-animation-name: zoom;
@@ -632,15 +725,15 @@ export default {
   transition: 0.2s ease-in-out;
 }
 
-.container {
-  animation: slideInFromRight 1s ease-in;
-  -webkit-animation: slideInFromRight 1s ease-in;
-  transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-}
+// .container {
+//   animation: slideInFromRight 1s ease-in;
+//   -webkit-animation: slideInFromRight 1s ease-in;
+//   transition: 0.2s ease-in-out;
+//   -webkit-transition: 0.2s ease-in-out;
+//   -moz-transition: 0.2s ease-in-out;
+//   -ms-transition: 0.2s ease-in-out;
+//   -o-transition: 0.2s ease-in-out;
+// }
 
 @-webkit-keyframes zoom {
   from {
@@ -753,5 +846,173 @@ export default {
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
   }
+}
+
+
+// ///////////////  //
+.gallery__item {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+	
+	.gallery__item:hover:before {
+		transform: translateY(0);
+		transition-delay: 0s;
+	}
+
+.gallery__img {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+}
+
+.gallery-caption {
+  width: 50%;
+  background: var(--bg-white);
+  border-radius: 0 0 11px 11px
+}
+
+.gallery-caption ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+
+.gallery-caption ul li {
+  padding-right: 11px;
+  display: flex;
+  align-items: center;
+}
+
+.gallery-caption ul li a {
+  display: flex;
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(228, 228, 228, 0.3);
+}
+
+.caption-sm {
+  font-size: 11px;
+  width: auto;
+  height: auto;
+}
+
+.caption-sm i {
+  margin-right: 5px;
+}
+
+.gallery-caption ul li.caption-sm a {
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+}
+
+.social-button i {
+  color: black;
+}
+
+.gallery-modal {
+  /* This way it could be display flex or grid or whatever also. */
+  display: block;
+  width: 671px;
+  max-width: 100%;
+  height: 475px;
+  max-height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.image__list {
+	overflow: hidden;
+	height: auto;
+  position: fixed;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 100%;
+  bottom: -5px;
+}
+
+.image__list ul {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+	
+.image__list li {
+  display: inline-flex;
+  align-items: center;
+	margin: 0 9.5px 0 9.5px;
+  height: 64px;
+  width: 64px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image__list img {
+	width: 100%;
+  height: 100%;
+	transition: all 0.3s ease;
+}
+	
+.image__list li:hover {
+  cursor: pointer;
+  height: 98px;
+  width: 98px;
+  transition: ease, all 0.5s;
+}
+	
+li.active {
+  height: 98px;
+  width: 98px;
+	border: 1px solid var(--primary-color);
+}
+
+.modal-footer {
+  position: fixed;
+  bottom: 6px;
+  color: var(--bg-white);
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.modal-footer p {
+  color: var(--bg-white);
+  font-size: var(--fs-xxs);
+}
+
+.modal-footer i:before {
+  background: transparent linear-gradient(180deg, rgba(255, 121, 121, 1) 0%, rgba(255, 168, 29, 1) 100%) 0% 0% no-repeat padding-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.image-grid {
+    display: grid;
+    gap: 1em;
+    grid-auto-rows: 10em;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-auto-flow: dense;
+}
+
+.load-image img {
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    cursor: pointer;
 }
 </style>

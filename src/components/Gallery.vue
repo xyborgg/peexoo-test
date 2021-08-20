@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery">
+  <!-- <div class="gallery">
     <div class="gallery-panel"
          v-for="photo in photos"
          :key="photo.id">
@@ -29,8 +29,8 @@
         </p>
       </div>
     </div>
-  </div>
-  <!-- <div class="gallery">
+  </div> -->
+  <div class="gallery">
     <div class="gallery-panel" v-for="photo in photos" :key="photo.id">
       <router-link :to="`/Photo/${photo.id}`">
         <img :src="thumbUrl(photo.filename)">
@@ -41,7 +41,7 @@
       <router-link :to="`/photo/${photo.id}`">
         <img :src="thumbUrl(photo.filename)">
       </router-link>
-    </div> -->
+    </div>
 </template>
 
 <script>

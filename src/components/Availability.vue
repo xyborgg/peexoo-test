@@ -513,13 +513,13 @@ export default {
 }
 
 .profile-category p {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-category i {
-    font-size: 7px;
-    padding-right: 7px;
+  font-size: 7px;
+  padding-right: 7px;
 }
 
 .profile-contact {

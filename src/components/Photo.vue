@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-overlay">
+  <!-- <div class="modal-overlay">
     <button @click="displayModal = false" class="close-button">
       Close Image
     </button>
@@ -19,8 +19,8 @@
         </p>
       </div>
     </div>
-  </div>
-  <!-- <div class="lightbox" @click.self="closeLightbox">
+  </div> -->
+  <div class="lightbox" @click.self="closeLightbox">
     <img :src="photoUrl(photo.filename)">
     <div class="lightbox-info">
       <div class="lightbox-info-inner">
@@ -34,7 +34,7 @@
         </p>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 <script>
 import photos from '@/photos.json';
@@ -49,7 +49,7 @@ export default {
   computed: {
     photo() {
       return this.photos.find((photo) => {
-        return photo.id === Number(this.$router.params.id);
+        return photo.id === Number(this.$route.params.id);
       });
     },
   },
@@ -58,7 +58,7 @@ export default {
       return require(`../assets/images/${filename}`);
     },
     closeLightbox() {
-        this.$router.push('/');
+      this.$router.push('/');
     },
   },
 };
