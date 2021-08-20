@@ -414,7 +414,7 @@ export default {
   -o-border-radius: 10px;
   padding: 18px;
   margin: 0 0 0 52px;
-  width: 41%;
+  width: 45.8%;
   display: flex;
   flex-direction: column;
   border: 0.25px solid rgba(255, 181, 0, 1);
