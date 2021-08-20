@@ -1,9 +1,9 @@
 <template>
   <section class="banner">
-    <div class="banner-title">
+    <!-- <div class="banner-title">
       <h1>Book me in less than 5mins</h1>
       <p>from Peexoo.ai</p>
-    </div>
+    </div> -->
   </section>
 </template>
 
@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .banner {
   display: flex;
   justify-content: flex-end;

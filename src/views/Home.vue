@@ -1,15 +1,15 @@
 <template>
-  <Banner />
+  <SecondaryBanner />
   <Card />
 </template>
 
 <script>
-import Banner from "../components/Banner.vue"
+import SecondaryBanner from "../components/SecondaryBanner.vue"
 import Card from "../components/Card.vue"
 export default {
   name: "Home",
   components: {
-    Banner,
+    SecondaryBanner,
     Card,
   },
 };

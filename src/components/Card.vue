@@ -97,7 +97,15 @@
         </div>
       </div>
     </div>
-
+    <div class="modal-footer" v-if="displayModal">
+          <p>
+            Built for free
+            <span
+              ><i class="fa fa-heart fa-gradient" aria-hidden="true"></i
+            ></span>
+            on Peexoo
+          </p>
+        </div>
     <div class="container">
       <section class="tab-nav">
         <div class="profile-container" v-show="cardHidden">
@@ -267,8 +275,8 @@ export default {
           caption: "A Train Station",
         },
         {
-          src: "https://picsum.photos/id/800/800/500.jpg",
-          caption: "A Train Station",
+          src: "https://picsum.photos/id/199/800/500.jpg",
+          caption: "A pier at a beach",
         },
         {
           src: "https://picsum.photos/id/800/800/500.jpg",
@@ -285,6 +293,22 @@ export default {
         {
           src: "https://picsum.photos/id/800/800/500.jpg",
           caption: "A Train Station",
+        },
+        {
+          src: "https://picsum.photos/id/308/800/500.jpg",
+          caption: "A random street",
+        },
+        {
+          src: "https://picsum.photos/id/199/800/500.jpg",
+          caption: "A pier at a beach",
+        },
+        {
+          src: "https://picsum.photos/id/800/800/500.jpg",
+          caption: "A Train Station",
+        },
+        {
+          src: "https://picsum.photos/id/308/800/500.jpg",
+          caption: "A random street",
         },
       ],
     };
@@ -420,7 +444,7 @@ export default {
 .image-grid {
   display: grid;
   gap: 1em;
-  grid-auto-rows: 10em;
+  grid-auto-rows: 17em;
   grid-template-columns: repeat(3, minmax(10em, 1fr));
   grid-auto-flow: dense;
 }
@@ -429,20 +453,32 @@ export default {
   border-radius: 10px;
   background-size: cover;
   background-position: center;
+  // height: 196px;
 }
 
-.load-image:nth-child(6n) {
-  grid-column: span 2;
+.load-image:nth-child(4n) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.load-image:nth-child(5n) {
+  grid-column: span 1;
   grid-row: span 2;
 }
 
 .load-image:nth-child(7n) {
-  grid-column: span 2;
-}
-
-.load-image:nth-child(8n) {
+  grid-column: span 1;
   grid-row: span 2;
 }
+
+.load-image:nth-child(9n) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+// .load-image:nth-child(8n) {
+//   grid-row: span 2;
+// }
 
 .card {
   background-color: #fff;
@@ -1047,13 +1083,13 @@ li.active {
   -webkit-text-fill-color: transparent;
 }
 
-.image-grid {
-  display: grid;
-  gap: 1em;
-  grid-auto-rows: 10em;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
-  grid-auto-flow: dense;
-}
+// .image-grid {
+//   display: grid;
+//   gap: 1em;
+//   grid-auto-rows: 10em;
+//   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+//   grid-auto-flow: dense;
+// }
 
 .load-image img {
   border-radius: 10px;

@@ -13,20 +13,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .banner {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   height: 165px;
   overflow: hidden;
-  background: transparent url("../assets/banner1.jpg") 0% 0% no-repeat
-    padding-box;
+  // background: transparent url("../assets/banner1.jpg") 0% 0% no-repeat padding-box;
   border-radius: 10px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 32px;
+  // background: rgba(242, 159, 5, 1);
+  background-image:  url("../assets/banner1.jpg"), linear-gradient(to right bottom, rgba(242, 159, 5, 1) , rgba(242, 159, 5, 0.1));
+
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-image: url("../assets/banner1.jpg"), 
+  // -webkit-linear-gradient(
+  //   to right bottom,
+  //   rgba(242, 159, 5, 1) 0%,
+  //   rgba(242, 159, 5, 0.1) 20%,
+  //   rgba(242, 159, 5, 0.1) 35%,
+  //   rgba(242, 159, 5, 1) 100%
+  // );
+  // background-blend-mode: color;
 }
 
 .banner-title {
