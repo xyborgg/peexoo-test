@@ -110,9 +110,7 @@
       <section class="tab-nav">
         <div class="profile-container" v-show="cardHidden">
           <div class="pic-holder" @click="cardHidden = false">
-            <a href="#">
-              <img src="@/assets/profile.jpeg" alt="Profile picture" />
-            </a>
+            <img src="@/assets/profile.jpeg" alt="Profile picture" />
           </div>
           <h1>
             <a href="#" @click="cardHidden = false">Show Card</a>
@@ -357,8 +355,6 @@ export default {
 .profile-container {
   display: flex;
   align-items: center;
-  height: 46px;
-  width: 30%;
 }
 
 .profile-container h1 {
@@ -370,8 +366,10 @@ export default {
 }
 
 .pic-holder {
+  height: 46px;
   width: 46px;
   overflow: hidden;
+  cursor: pointer;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -379,12 +377,9 @@ export default {
   -o-border-radius: 50%;
 }
 
-.pic-holder a {
-  width: 100%;
-}
-
 .pic-holder img {
   height: 46px;
+  width: 100%;
   object-fit: cover;
 }
 
